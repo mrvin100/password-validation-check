@@ -1,0 +1,281 @@
+@charset "utf-8";
+/* custom css file made by JeanDoe */
+
+/* import Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* css variables */
+
+:root{
+	--main-clr: #567;
+	--light-bg: #f1e1d1;
+	--light-clr: #7a7b7c;
+	--black: #1a1b1c;
+	--white: #fff;
+	
+	--body-font: 'Poppins','Ubuntu Mono', sans-serif;
+	--border: 1px solid rgba(0,0,0,.1);
+}
+
+/* initialisation */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	font-weight: normal;
+}
+
+::selection{
+	background: var(--main-clr);
+	color: var(--white);
+}
+
+html{
+	font-size: 100%;
+}
+
+body{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	align-items: center;
+	background: var(--light-bg);
+	font-family: var(--body-font);
+	padding: 1rem;
+}
+
+/* validation section starts */
+
+.wrapper{
+	width: 100%;
+	max-width: 30rem;
+	border-radius: .25rem;
+	background: var(--white);
+	padding: 1rem;
+	box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.wrapper .pass-field{
+	position: relative;
+}
+
+.pass-field input{
+	width: 100%;
+	padding: 1rem;
+	border-radius: .25rem;
+	border: 1px solid rgba(0,0,0,.1);
+	font-size: 1rem;
+	font-family: var(--body-font);
+	letter-spacing: .02rem;
+}
+.pass-field input:focus{
+	border: 1px solid var(--main-clr);
+}
+
+.pass-field i{
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: var(--light-clr);
+}
+
+.pass-field i:hover{
+	color: var(--main-clr);
+}
+#modal{
+	position: absolute;
+	top: -3rem;
+	right: -1rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: var(--light-clr);
+	background: var(--white);
+	padding: .5rem;
+	border-radius: .25rem;
+}
+
+#modal:hover{
+	color: var(--main-clr);
+}
+
+.wrapper .content{
+	margin: 1rem 0;
+	display: none;
+}
+
+.content.active{
+	display: block;
+}
+
+.content p{
+	color: var(--light-clr);
+	font-size: .938rem;
+}
+
+.container{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: .5rem;
+}
+.container img{
+	border: var(--border);
+	height: 10rem;
+	object-fit: cover;
+	border-radius: .25rem;
+}
+
+.content .requirement-list{
+	margin-top: 1rem;
+}
+
+.requirement-list li{
+	font-size: .813rem;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	margin-bottom: .6rem;
+	gap: 1rem;
+}
+
+.requirement-list li i{
+	width: 1rem;
+	color: var(--light-clr);
+	font-size: .6rem;
+	order: 1;
+	display: none;
+}
+
+.requirement-list li.valid i{
+	color: var(--main-clr);
+	font-size: 1.2rem;
+	display: flex;
+}
+
+.requirement-list li span{
+	color: var(--light-clr);
+	flex: 1;
+}
+
+.requirement-list li.valid span{
+	color: var(--main-clr);
+}
+
+/* notification section starts */
+
+
+.notification{
+	padding: .5rem;
+	border-radius: .25rem;
+	max-width: 25rem;
+	box-shadow: 0 1px 1px rgba(0,0,0,.1);
+	background: var(--white);
+	position: relative;
+	margin-top: 2rem;
+}
+
+.notification .info_icon{
+	position: absolute;
+	top: -1rem;
+	right: -1rem;
+	border-radius: 50%;
+	background: var(--main-clr);
+	color: var(--white);
+	display: block;
+	height: 2rem;
+	width: 2rem;
+	text-align: center;
+	line-height: 1.7rem;
+}
+.notification .title{
+	color: #232426;
+	font-size: 1.2rem;
+	text-align: center;
+	cursor: pointer;
+	text-transform: capitalize;
+}
+.notification .title:hover{
+	color: var(--main-clr);
+}
+.text{
+	margin-top: 1rem;
+	padding: 1rem;
+	border-radius: .25rem;
+	border: 1px solid rgba(0,0,0,.1);
+	color: #232426;
+	font-weight: 200;
+	font-size: .938rem;
+	transition: all .3s;
+	display: none;
+}
+.text.active{
+	display: block;
+}
+.notification .text span{
+	color: var(--main-clr);
+}
+
+.close{
+	position: absolute;
+	right: 1rem;
+	top: 1.5rem;
+	font-size: 1.2rem;
+	cursor: pointer;
+	color: #232426;
+	display: none;
+}
+
+.close.active{
+	display: block;
+	color: var(--light-clr);
+}
+
+
+
+/* media queries starts */
+
+@media screen and (max-width: 450px){
+	.container{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.container{
+		width: 100%;
+	}
+	.container img{
+		width: 100%;
+		object-position: top;
+	}
+	.requirement-list{
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: .3rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
